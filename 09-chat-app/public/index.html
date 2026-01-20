@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>💬 ChatApp</h2>
+            </div>
+            <div class="rooms">
+                <h3>Rooms</h3>
+                <div class="room active" data-room="general"># general</div>
+                <div class="room" data-room="random"># random</div>
+                <div class="room" data-room="tech"># tech</div>
+            </div>
+            <div class="users">
+                <h3>Online Users (<span id="userCount">0</span>)</h3>
+                <div id="userList"></div>
+            </div>
+        </div>
+        
+        <div class="main">
+            <div class="chat-header">
+                <h2># <span id="currentRoom">general</span></h2>
+            </div>
+            
+            <div class="messages" id="messages"></div>
+            
+            <div class="typing-indicator" id="typingIndicator"></div>
+            
+            <div class="input-area">
+                <input type="text" id="messageInput" placeholder="Type a message..." disabled>
+                <button id="sendBtn" disabled>Send</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="usernameModal">
+        <div class="modal-content">
+            <h2>Welcome to ChatApp</h2>
+            <input type="text" id="usernameInput" placeholder="Enter your username">
+            <button onclick="joinChat()">Join Chat</button>
+        </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
